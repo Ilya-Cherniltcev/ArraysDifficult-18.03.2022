@@ -6,6 +6,28 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+// Задача 5 ============================================================
+        int[][] matrix = new int[3][3];
+        int number = 1;
+        boolean isLast;
+        int reverse = matrix.length;
+        for (int i = 0; i < matrix.length; i++) {
+            reverse--;
+            for (int j = matrix.length - 1; j >= 0; j--) {
+                isLast = (i == j);
+                matrix[i][j] = isLast ? number : 0;
+                if (reverse >= 0) {
+                    matrix[i][reverse] = number;
+                }
+            }
+        }
+
+        for (int[] row : matrix) {
+            for (int column : row) {
+                System.out.print(column + " ");
+            }
+            System.out.println();
+        }
 // Задача 6 ============================================================
         int[] arr = {5, 4, 3, 2, 1};
         int f = arr.length;

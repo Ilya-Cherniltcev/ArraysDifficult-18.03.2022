@@ -9,16 +9,15 @@ public class Main {
 // Задача 5 ============================================================
         int[][] matrix = new int[3][3];
         int number = 1;
-        boolean isLast;
+        boolean isLast, isReverse;
         int reverse = matrix.length;
         for (int i = 0; i < matrix.length; i++) {
             reverse--;
             for (int j = matrix.length - 1; j >= 0; j--) {
-                isLast = (i == j);
+                isLast = i == j;
+                isReverse = reverse >= 0;
                 matrix[i][j] = isLast ? number : 0;
-                if (reverse >= 0) {
-                    matrix[i][reverse] = number;
-                }
+                matrix[i][reverse] = isReverse ? number : 0;
             }
         }
 
